@@ -3,6 +3,8 @@
 TestGuru has these objects:
 
 
+* Category
+
 * Tests
 
 * Question
@@ -10,4 +12,6 @@ TestGuru has these objects:
 * Answer
 
 * User
+
+* Result
 
