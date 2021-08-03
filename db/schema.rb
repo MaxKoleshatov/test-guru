@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_183240) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean "correct", default: false, null: false
-    t.string "answer_client", null: false
+    t.string "text", null: false
     t.integer "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
