@@ -4,7 +4,7 @@ class Test < ApplicationRecord
 
   has_many :questions, dependent: :destroy
   has_many :tests_users, dependent: :destroy
-  has_many :users, through: :tests_users, dependent: :destroy
+  has_many :users, through: :tests_users
     
   def self.sort_tests_by_category(category_title)
     joins(:category)
