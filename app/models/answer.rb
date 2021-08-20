@@ -1,11 +1,18 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  scope :correct, -> {where(correct: true).pluck(:text)}
+  scope :correct, -> {where(correct: true)}
+
+  validates :text, presence: true
+
+  validate :answers_limit
 
   private
 
-  def number_of_responses
-    error.add(:question, "Количество ответов должно быть не больше 4") if question.answers.count > 4
+  def answers_limit
+    if question.answers.count >= 4
+      errors.add(:question, "Ответов должно быть не больше 4")
+    else
+    end
   end
 end
