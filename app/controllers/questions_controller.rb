@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
   
   def destroy
     @question.delete
-    render plain: "Destroy"
+    render plain: "Question Destroy"
   end
 
   private
