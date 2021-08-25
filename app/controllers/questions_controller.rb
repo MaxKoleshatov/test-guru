@@ -6,9 +6,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    questions = @test.questions.map do
-    |q| q.body
-    end
+    questions = @test.questions.pluck(:body)
     render plain: questions.join(" ")
   end
 
@@ -21,7 +19,11 @@ class QuestionsController < ApplicationController
 
   def create
     question = @test.questions.create(questions_params)
+    if question.save
     render plain: question.inspect
+    else
+      new
+    end
   end
   
   def destroy
