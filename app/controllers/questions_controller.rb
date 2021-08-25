@@ -1,22 +1,4 @@
 class QuestionsController < ApplicationController
-<<<<<<< HEAD
-    def index
-      @test = Test.find(params[:test_id])
-      questions = @test.questions.map do
-        |q| q.body
-      end
-      render plain: questions.join(" ")
-    end
-
-    def show
-      @test = Test.find(params[:test_id])
-      question = Question.find(params[:id])
-      render plain: @test.questions[question.id - 1].body
-
-    end
-end
-# Post.find(params[:id])
-=======
   # skip_before_action :verify_authenticity_token
   before_action :find_test, only: %i[index create]
   before_action :find_question, only: %i[show destroy]
@@ -67,4 +49,3 @@ end
     render plain: "Нет такого вопроса"
   end
 end
->>>>>>> lesson_7_Controllers
