@@ -18,6 +18,11 @@ class Test < ApplicationRecord
   scope :sort_tests_by_category, -> (category_title) {joins(:category)
   .where(categories: {title: category_title})
   .order(title: :desc)}
-
   scope :by_level, -> (level) {where(level: level)}
+
+  def self.sort_tests_by_category(category)
+    Test.sort_by_category(category)
+        .order(title: :desc)
+        .pluck(:title)
+  end
 end

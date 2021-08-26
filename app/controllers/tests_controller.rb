@@ -1,15 +1,17 @@
 class TestsController < ApplicationController
-<<<<<<< HEAD
-    def show
-        render json: {tests: Test.first}
+  before_action :find_test, only: %i[show]
+
+  def show
+    render plain: @test.title
+  end
+
+  def new
+  end
+
+  private
+
+  
+    def find_test
+      @test = Test.find(params[:id])
     end
 end
-=======
-  def show
-    render json: {tests: Test.first}
-  end
-  def new
-    
-  end
-end
->>>>>>> lesson_7_Controllers
