@@ -1,0 +1,14 @@
+<h1>Вопрос теста - <%= @question.test.title%></h1>
+
+<p><%= @question.body%></p>
+
+<%= link_to 'Редактировать вопрос', edit_question_path(@question) %>
+
+<p><%= link_to 'Удалить вопрос', question_path(@question), method: :delete %></p>
+
+<%= link_to 'Назад', test_path(@question.test.id) %>
+
+
+
+
+

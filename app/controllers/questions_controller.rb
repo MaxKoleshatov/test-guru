@@ -1,28 +1,42 @@
 class QuestionsController < ApplicationController
   # skip_before_action :verify_authenticity_token
-  before_action :find_test, only: %i[index create]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[index new create]
+  before_action :find_question, only: %i[edit update show destroy]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    questions = @test.questions.pluck(:body)
-    render plain: questions.join(" ")
+    @questions = @test.questions
+    # .pluck(:body)
+    # render plain: @questions.join(" ")
   end
 
   def show
-    render plain: @question.body
+    # render plain: @question.body
   end
 
   def new
+    @question = Question.new
   end
   # test_questions_path(@test)
   def create
     question = @test.questions.build(questions_params)
     if question.save
-   redirect_to test_questions_path(@test)
+      redirect_to test_questions_path(@test)
     else
      render 'new'
+    end
+  end
+
+  def edit
+   
+  end
+
+  def update
+    if @question.update(questions_params)
+      redirect_to @question
+    else
+      render :edit
     end
   end
   

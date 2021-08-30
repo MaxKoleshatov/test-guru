@@ -1,0 +1,12 @@
+<h1>Все тесты: </h1>
+  <% if @tests.present? %>
+    <% @tests.each do |test|%>
+    <table border>
+    <tr><th>Название теста</th><th>Уровень теста</th><th>Количество вопросов</th></tr>
+    <tr><th><%= test.title%></th><th><%= test.level%></th><th><%= test.questions.count%></th></tr>
+    
+    </table>
+    <% end%>
+  <% else%>
+    <p> "У вас нет тестов"</p>
+  <% end%>

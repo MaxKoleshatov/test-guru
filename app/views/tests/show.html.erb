@@ -1,0 +1,11 @@
+<h1>Тест под названием  - "<%= @test.title %>" </h1>
+
+<p>Уровень сложности  - "<%= @test.level %>" </p>
+
+<p>Вопросы к тесту: </p>
+<table border>
+<% @questions.each do |q|%>
+    <tr><th><%= q.body%></th>
+    <% end %>
+    </table>
+<p><%= link_to 'Удалить тест', test_path(@test), method: :delete %></p>

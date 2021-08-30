@@ -1,0 +1,13 @@
+<h1>Все Вопросы теста - "<%= @test.title %>" </h1>
+  <% if @test.questions.present? %>  
+    <% @questions.each do |q| %>
+    <table border>
+    <tr><th><%= q.body%></th>
+    </table>
+    <% end%>
+    <%else%> 
+        <p> "В тесте нет вопросов"</p>
+    <% end%>
+
+    <%= link_to 'Назад', test_path(@test) %>
+
