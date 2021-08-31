@@ -1,13 +1,17 @@
-<h1>Все Вопросы теста - "<%= @test.title %>" </h1>
-  <% if @test.questions.present? %>  
-    <% @questions.each do |q| %>
-    <table border>
-    <tr><th><%= q.body%></th>
+  <h1>Все Вопросы теста - "<%= @test.title %>" </h1>
+  <% if @test.questions.present? %>
+    <table>
+      <tr>
+        <th>Вопросы</th>
+        <th colspan="3"> Действия</th>
+      </tr>
+
+      <%= render @questions %>
     </table>
-    <% end%>
-    <%else%> 
-        <p> "В тесте нет вопросов"</p>
-    <% end%>
+  <% else%>
+    <p> render plain:"У вас нет тестов"</p>
+  <% end%>
 
-    <%= link_to 'Назад', test_path(@test) %>
+  <p></p>
 
+  <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %> 

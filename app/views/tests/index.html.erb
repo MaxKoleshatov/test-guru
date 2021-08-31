@@ -1,12 +1,17 @@
 <h1>Все тесты: </h1>
   <% if @tests.present? %>
-    <% @tests.each do |test|%>
-    <table border>
-    <tr><th>Название теста</th><th>Уровень теста</th><th>Количество вопросов</th></tr>
-    <tr><th><%= test.title%></th><th><%= test.level%></th><th><%= test.questions.count%></th></tr>
-    
+    <table>
+      <tr>
+        <th>Название</th>
+        <th>Уровень</th>
+        <th>Количество вопросов</th>
+        <th colspan="3"> Действия</th>
+      </tr>
+
+      <%= render @tests %>
     </table>
-    <% end%>
   <% else%>
-    <p> "У вас нет тестов"</p>
+    <p> render plain:"У вас нет тестов"</p>
   <% end%>
+
+  <%= link_to 'Создать новый тест', new_test_path %>

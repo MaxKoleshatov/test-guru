@@ -15,19 +15,19 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    if @test.save
-      redirect_to @test
-    else
-      render :new
-    end
+      if @test.save
+        redirect_to @test
+      else
+        render :new
+      end
   end
 
-    def edit
-      @test = Test.find(params[:id])
-    end
+  def edit
+    @test = Test.find(params[:id])
+  end
 
-    def update
-      @test = Test.find(params[:id])
+  def update
+    @test = Test.find(params[:id])
       if @test.update(test_params)
         redirect_to @test
       else
@@ -36,8 +36,8 @@ class TestsController < ApplicationController
     end
 
     def destroy
-      @test.delete
-      render plain: "Тест удален"
+      @test.destroy
+        redirect_to tests_path
     end
 
   private

@@ -4,7 +4,7 @@ module ApplicationHelper
     end
     
     def current_year
-      Date.today.year
+      Date.current.year
     end
     
 end
