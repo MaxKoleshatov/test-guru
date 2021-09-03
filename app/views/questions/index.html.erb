@@ -1,0 +1,17 @@
+  <h1>Все Вопросы теста - "<%= @test.title %>" </h1>
+  <% if @test.questions.present? %>
+    <table>
+      <tr>
+        <th>Вопросы</th>
+        <th colspan="3"> Действия</th>
+      </tr>
+
+      <%= render @questions %>
+    </table>
+  <% else%>
+    <p> render plain:"У вас нет тестов"</p>
+  <% end%>
+
+  <p></p>
+
+  <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %> 

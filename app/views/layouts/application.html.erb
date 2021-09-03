@@ -8,9 +8,18 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+    <style type="text/css">
+      footer {
+      position: fixed;
+      left: 0; bottom: 0;
+      padding: 10px;
+      width: 100%
+     }
+    </style>
+  </head>
   <body>
     <%= yield %>
   </body>
+  <%= render 'shared/footer' %>
 </html>
