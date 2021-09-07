@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_08_19_132005) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean "correct", default: false, null: false
@@ -69,4 +69,7 @@ ActiveRecord::Schema.define(version: 0) do
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
+  add_foreign_key "tests_users", "questions", column: "current_question_id"
+  add_foreign_key "tests_users", "tests"
+  add_foreign_key "tests_users", "users"
 end
