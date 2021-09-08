@@ -1,8 +1,8 @@
 <h1>Тест  <%=@test_user.test.title %></h1>
 
 <p>
-  <%='Вопрос '%><%= @test_user.current_question.id %>
-  <%='из '%><%= @test_user.test.questions.count %>
+  <%='Вопрос '%><%= @test_user.test.questions.order(:id).where('id < ?', @test_user.current_question.id).count + 1%>
+  <%='из '%><%= @test_user.test.questions.count %>  
 </p>
 
 <b>
@@ -12,12 +12,11 @@
 <%= form_with url: tests_user_path(@test_user), method: :put do |form| %>
     <%= form.collection_check_boxes :answer_ids, @test_user.current_question.answers, :id, :text, include_hidden: false do |b| %>
         
-    <p>
-      <%= b.check_box id: "answer_ids_#(b.object.id)" %>
-      <%= b.label %>
-    </p>
-    <%end%>
+<p>
+  <%= b.check_box id: "answer_ids_#(b.object.id)" %>
+  <%= b.label %>
+</p>
+<%end%>
 
 <p><%= form.submit 'Следующий' %></p>
-    <%end%>
-
+<%end%>
