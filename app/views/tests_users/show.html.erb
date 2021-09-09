@@ -1,7 +1,7 @@
 <h1>Тест  <%=@test_user.test.title %></h1>
 
 <p>
-  <%='Вопрос '%><%= @test_user.test.questions.order(:id).where('id < ?', @test_user.current_question.id).count + 1%>
+  <%='Вопрос '%><%= @test_user.number_current_question%>
   <%='из '%><%= @test_user.test.questions.count %>  
 </p>
 

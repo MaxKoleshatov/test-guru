@@ -5,7 +5,7 @@ class TestsUser < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
-  CHECKPOINT_RESULT = 85.freeze
+  CHECKPOINT_RESULT = 85
 
   def completed?
     current_question.nil?
@@ -25,6 +25,10 @@ class TestsUser < ApplicationRecord
 
   def done?
     test_result > CHECKPOINT_RESULT
+  end
+
+  def number_current_question
+    test.questions.order(:id).where('id < ?', self.current_question.id).count + 1
   end
 
   private
