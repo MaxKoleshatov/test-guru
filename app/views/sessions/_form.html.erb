@@ -1,0 +1,17 @@
+<%= form_with url: session_path do |form| %>
+
+<p class='flash alert'><%= flash_message(:alert) %></p>
+
+<p>
+  <%= form.label :email %><br>
+  <%= form.text_field :email, id: :email %>
+</p>
+
+<p>
+  <%= form.label :password %><br>
+  <%= form.password_field :password, id: :password %>
+</p>
+
+<p><%= form.submit 'Ввод' %></p>
+
+<%end%>

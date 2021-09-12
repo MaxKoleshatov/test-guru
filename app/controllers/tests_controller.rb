@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_test, only: %i[start show destroy]
 
   def index
@@ -42,10 +43,8 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user = User.first
-
-    @user.tests.push(@test)
-    redirect_to @user.tests_user(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.tests_user(@test)
   end
 
   private

@@ -11,7 +11,7 @@
       <%= render @tests %>
     </table>
   <% else%>
-    <p> render plain:"У вас нет тестов"</p>
+    <p><%= render plain:"У вас нет тестов"%></p>
   <% end%>
 
   <%= link_to 'Создать новый тест', new_test_path %>
