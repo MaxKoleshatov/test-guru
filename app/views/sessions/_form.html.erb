@@ -1,6 +1,6 @@
 <%= form_with url: session_path do |form| %>
 
-<p class='flash alert'><%= flash_message(:alert) %></p>
+<%= flash_message(:errors_mail_password) %>
 
 <p>
   <%= form.label :email %><br>

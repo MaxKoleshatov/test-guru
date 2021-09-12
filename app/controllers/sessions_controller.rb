@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to cookies[:current_url] || tests_path
+      cookies.delete :current_url if redirect_to cookies[:current_url] || tests_path
     else
-      flash.now[:alert] = 'Введите свою электронную почту и пароль'
+      flash.now[:errors_mail_password] = 'Введите свою электронную почту и пароль'
       render :new
     end
   end
