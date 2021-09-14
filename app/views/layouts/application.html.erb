@@ -19,6 +19,10 @@
     </style>
   </head>
   <body>
+    <% if logged_in? %>
+      <p class="nav user">Добро пожаловать, <b><%= current_user.email %></b> Guru </p>
+      <p class="nav user"><%= link_to 'Выход', session_path, method: :delete %></p> 
+      <% end %>
     <%= yield %>
   </body>
   <%= render 'shared/footer' %>
