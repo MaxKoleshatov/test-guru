@@ -1,0 +1,17 @@
+<h1>Вопрос теста - <%= @question.test.title%></h1>
+
+<p><%= @question.body%></p>
+
+<h2> Ответы </h2>
+
+<ol>
+<%= render @question.answers%>
+</ol>
+
+<%= link_to 'Новый ответ', new_admin_question_answer_path(@question) %> |
+
+<%= link_to 'Редактировать вопрос', edit_admin_question_path(@question) %> |
+
+<%= link_to 'Удалить вопрос', admin_question_path(@question), method: :delete %> |
+
+<%= link_to 'Назад', admin_test_path(@question.test.id) %>

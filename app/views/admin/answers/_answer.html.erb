@@ -1,0 +1,9 @@
+<li>
+  <%= answer.text %><br>
+  <%= link_to 'Посмотреть ответ', admin_answer_path(answer) %> |
+  <%= link_to 'Изменить ответ', edit_admin_answer_path(answer) %> |
+  <%= link_to 'Удалить ответ', 
+               admin_answer_path(answer),
+               method: :delete,
+               data: {confirm: 'Вы уверены?'} %>
+</li>               

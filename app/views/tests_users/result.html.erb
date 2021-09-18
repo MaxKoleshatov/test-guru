@@ -1,7 +1,5 @@
 <h1>Тест  <%=@test_user.test.title %> завершен</h1>
 
-
-
 <% if @test_user.done?  %>
   <h3 class='done'>Вы прошли тест, ваш результат: <%=@test_user.test_result%><%="%"%></h3>
 <% else %>
