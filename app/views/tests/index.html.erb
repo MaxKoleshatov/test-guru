@@ -5,7 +5,7 @@
         <th>Название</th>
         <th>Уровень</th>
         <th>Количество вопросов</th>
-        <th colspan="4"> Действия</th>
+        <th>Действия</th>
       </tr>
 
       <%= render @tests %>
@@ -14,4 +14,4 @@
     <p><%= render plain:"У вас нет тестов"%></p>
   <% end%>
 
-  <%= link_to 'Создать новый тест', new_test_path %>
+  <%= link_to 'На главную', root_path %>
