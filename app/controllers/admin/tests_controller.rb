@@ -43,11 +43,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.tests_user(@test)
-  end
-
   private
 
   def find_test

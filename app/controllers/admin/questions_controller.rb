@@ -1,13 +1,12 @@
 class Admin::QuestionsController < Admin::BaseController
-    before_action :authenticate_user!
-    # skip_before_action :verify_authenticity_token
-    before_action :find_test, only: %i[new create]
-    before_action :find_question, only: %i[edit update show destroy]
+  before_action :authenticate_user!
+  # skip_before_action :verify_authenticity_token
+  before_action :find_test, only: %i[new create]
+  before_action :find_question, only: %i[edit update show destroy]
   
-    # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-  
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
  
- def show; end
+  def show; end
 
   def new
     @question = Question.new
