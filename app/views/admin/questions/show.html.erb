@@ -1,17 +1,17 @@
-<h1>Вопрос теста - <%= @question.test.title%></h1>
+<h1><%=t('.header', title: @question.test.title)%></h1>
 
 <p><%= @question.body%></p>
 
-<h2> Ответы </h2>
+<h2> <%=t('.answers')%> </h2>
 
 <ol>
 <%= render @question.answers%>
 </ol>
 
-<%= link_to 'Новый ответ', new_admin_question_answer_path(@question) %> |
+<%= link_to t('.create_new_answer'), new_admin_question_answer_path(@question) %> |
 
-<%= link_to 'Редактировать вопрос', edit_admin_question_path(@question) %> |
+<%= link_to t('.edit_answer'), edit_admin_question_path(@question) %> |
 
-<%= link_to 'Удалить вопрос', admin_question_path(@question), method: :delete %> |
+<%= link_to t('.delete_answer'), admin_question_path(@question), method: :delete %> |
 
-<%= link_to 'Назад', admin_test_path(@question.test.id) %>
+<%= link_to t('.back'), admin_test_path(@question.test.id) %>
