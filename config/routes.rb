@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'welcome/index'
-  get 'sessions/new'
-  get 'users/new'
+  # get 'welcome/index'
+  # get 'sessions/new'
+  # get 'users/new'
 
   devise_for :users, controllers: {sessions: 'sessions' }
 
