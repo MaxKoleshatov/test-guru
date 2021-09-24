@@ -32,22 +32,142 @@
 ru:
   hello: "Привет Мир!"
 
+  new_create_test: Создать новый тест
+  edit_test: Редактировать тест %{title}
 
-  # devise:
-  #   confirmations:
-  #   failure:
-  #     already_authenticated: Вы уже вошли в систему.
-  #   sessions:
-  #     already_signed_out: Выход из системы уже выполнен.
-  #     user:
-  #     signed_in: Вход в систему выполнен.
-  #     signed_out: Выход из системы выполнен.
+  activerecord:
+    errors:
+      models:
+        test:
+          attributes:
+            title:
+              blank: Название не может быть пустым
+            level:
+              greater_than: Установите уровень теста
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Новый Тест"
+        update: "Обновить тест"
+      answer:
+        update: "Обновить ответ"
+        create: "Создать новый ответ"
+      question:
+        update: "Обновить вопрос"
+        create: "Создать новый вопрос"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+    select:
+      prompt: Пожалуйста выберите категорию
+
+  tests:
+    all: "Все тесты"
+
+  tests_users:
+    result:
+      header: " Тест %{title} завершен"
+
+  tests:
+    index:
+      title: "Название"
+      level: "Уровень"
+      count: "Количество вопросов"
+      action: "Действия"
+      all: "Все тесты"
+      root_page: "На главную"
+    test:
+      start: "Старт"
+
+  welcome:
+    index:
+      registration: "Регистрация"
+      log_in: "Вход"
+      log_out: "Выход"
+      welcome: "Рады видеть"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы закончили тест"
+
+  layouts:
+    application:
+      welcome: "Добро пожаловать"
+      log_out: "Выход"
+
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан"
+      index:
+        header: "Доступные тесты для администратора"
+        title: Название
+        level: Уровень
+        count: Количество вопросов
+        action: Действия
+        create_new_test: Создать новый тест
+        root_page: На главную
+      test:
+        show_test: Посмотреть тест
+        edit_test: Отредактировать тест
+        delete_test: Удалить тест
+      show:
+        header: "Тест под названием %{title}"
+        level: "Уровень сложности - %{level}"
+        questions: Вопросы
+        actions: Действия
+        create_new_question: Создать новый вопрос
+        edit_test: Отредактировать тест
+        delete_test: Удалить тест
+        back: Назад
+      new:
+        back: Назад
+      edit:
+        back: Назад
+      form:
+        select:
+          promt: Выберите категорию теста
+    questions:
+      question:
+        show_question: Посмотреть вопрос
+        edit_question: Отредактировать вопрос
+        delete_question: Удалить вопрос
+      form:
+        body: Текст вопроса
+      show:
+        header: Вопрос теста - %{title}
+        answers: Ответы
+        create_new_answer: Создать новый ответ 
+        edit_answer: Отредактировать ответ
+        delete_answer: Удалить ответ
+        back: Назад
+    answers:
+      answer:
+        show_answer: Посмотреть ответ
+        edit_answer: Отредактировать ответ
+        delete_answer: Удалить ответ
+      edit:
+        header: Изменить вопрос
+        back: Назад
+      form:
+        text: Текст ответа
+        correct: Верный
+
 
   devise:
+    helpers:
+      submit:
+        registrations:
+          create: Зарегистрировать
     confirmations:
       confirmed: Ваш адрес эл. почты успешно подтвержден.
       new:
         resend_confirmation_instructions: Выслать повторно письмо с активацией
+        email: Почта
       send_instructions: В течение нескольких минут вы получите письмо с инструкциями по подтверждению адреса эл. почты.
       send_paranoid_instructions: Если ваш адрес эл. почты есть в системе, то в течение нескольких минут вы получите письмо с инструкциями по его подтверждению.
     failure:
@@ -117,6 +237,11 @@ ru:
         we_need_your_current_password_to_confirm_your_changes: введите текущий пароль для подтверждения изменений
       new:
         sign_up: Регистрация
+        name: "Имя"
+        surname: "Фамилия"
+        email: "Почта"
+        password: "Пароль"
+        password_confirm: "Потверждение пароля"
       signed_up: Добро пожаловать! Вы успешно зарегистрировались.
       signed_up_but_inactive: Вы успешно зарегистрированы. Однако, вы не можете войти в систему, потому что ваша учетная запись не активирована.
       signed_up_but_locked: Вы успешно зарегистрированы. Однако, вы не можете войти в систему, потому что ваша учетная запись заблокирована.
@@ -128,10 +253,15 @@ ru:
       already_signed_out: Выход из системы уже выполнен.
       new:
         sign_in: Войти
+        email: Почта
+        password: Пароль
+        remember_me: Запомнить меня
       signed_in: Вход в систему выполнен.
       signed_out: Выход из системы выполнен.
     shared:
       links:
+        log_in: Вход
+        registration: Регистрация
         back: Назад
         didn_t_receive_confirmation_instructions: Не получили подтверждение?
         didn_t_receive_unlock_instructions: Не получили код разблокировки?
@@ -139,6 +269,7 @@ ru:
         sign_in: Войти
         sign_in_with_provider: 'Войти с помощью: %{provider}'
         sign_up: Регистрация
+        root_page: На главную
       minimum_password_length:
         few: "(минимум %{count} знака)"
         many: "(минимум %{count} знаков)"
@@ -146,7 +277,7 @@ ru:
         other: "(минимум %{count} знаков)"
     unlocks:
       new:
-        resend_unlock_instructions: Выслать подтверждение заново
+        resend_unlock_instructions: Выслать подтверждение
       send_instructions: В течение нескольких минут вы получите письмо с инструкциями по разблокировке учетной записи.
       send_paranoid_instructions: Если ваша учетная запись существует, то в течение нескольких минут вы получите письмо с инструкциями по ее разблокировке.
       unlocked: Ваша учетная запись разблокирована. Теперь вы можете войти в систему.
@@ -162,6 +293,3 @@ ru:
         many: "%{resource}: сохранение не удалось из-за %{count} ошибок:"
         one: "%{resource}: сохранение не удалось из-за %{count} ошибки:"
         other: "%{resource}: сохранение не удалось из-за %{count} ошибки:"
-
-    
-      
