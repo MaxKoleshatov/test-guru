@@ -32,6 +32,9 @@
 en:
   hello: "Hello world"
 
+  new_create_test: Create new test
+  edit_test: Edit test %{title}
+
   helpers:
     submit:
       test:

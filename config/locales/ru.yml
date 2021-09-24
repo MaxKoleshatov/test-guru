@@ -32,6 +32,9 @@
 ru:
   hello: "Привет Мир!"
 
+  new_create_test: Создать новый тест
+  edit_test: Редактировать тест %{title}
+
   activerecord:
     errors:
       models:
