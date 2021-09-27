@@ -1,3 +1,5 @@
+<div class="row justify-content-center">
+  <div class="col col-md-4">
 <h2><%= t('.sign_up')%></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -29,8 +31,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.reg') %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>

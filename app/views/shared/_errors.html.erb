@@ -1,10 +1,10 @@
 <% if resource.errors.present? %>
-<div>
+<div class="alert alert-danger" role="alert">
   <h2> Найдена ошибка </h2>
 
   <ul>
     <% resource.errors.full_messages.each do |message| %>
-      <li class='flash errors'><%= message %></li>
+      <li><%= message %></li>
     <% end %>
   </ul>
 </div>

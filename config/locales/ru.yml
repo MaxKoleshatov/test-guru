@@ -41,9 +41,11 @@ ru:
         test:
           attributes:
             title:
-              blank: Название не может быть пустым
+              blank: Название не может быть пустым hhhhh
             level:
               greater_than: Установите уровень теста
+            category:
+              required: Установите категорию теста
 
   helpers:
     submit:
@@ -97,6 +99,10 @@ ru:
     application:
       welcome: "Добро пожаловать"
       log_out: "Выход"
+
+  shared:
+    nav:
+      log_out: Выход
 
 
   admin:
@@ -241,6 +247,7 @@ ru:
         surname: "Фамилия"
         email: "Почта"
         password: "Пароль"
+        reg: Зарегистрировать
         password_confirm: "Потверждение пароля"
       signed_up: Добро пожаловать! Вы успешно зарегистрировались.
       signed_up_but_inactive: Вы успешно зарегистрированы. Однако, вы не можете войти в систему, потому что ваша учетная запись не активирована.
@@ -252,7 +259,7 @@ ru:
     sessions:
       already_signed_out: Выход из системы уже выполнен.
       new:
-        sign_in: Войти
+        sign_in: Вход
         email: Почта
         password: Пароль
         remember_me: Запомнить меня
