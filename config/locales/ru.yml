@@ -46,6 +46,10 @@ ru:
               greater_than: Установите уровень теста
             category:
               required: Установите категорию теста
+        user:
+          attributes:
+            email:
+              blank: Ты пидор
 
   helpers:
     submit:
