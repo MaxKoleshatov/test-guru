@@ -1,6 +1,9 @@
+<div class="card">
+<div class="card-header">
 <h1><%=t('.header') %> </h1>
   <% if @tests.present? %>
-    <table>
+  <div class="card-body">
+  <table class="table table-striped">
       <tr>
       <th><%=t('.title')%></th>
       <th><%=t('.level')%></th>
@@ -10,7 +13,10 @@
 
       <%= render @tests %>
     </table>
+    </div>
   <% end%>
 
   <%= link_to t('.create_new_test'), new_admin_test_path %><br>
   <%= link_to t('.root_page'), root_path %>
+  </div>
+  </div>

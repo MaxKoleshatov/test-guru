@@ -1,6 +1,9 @@
+<div class="card">
+<div class="card-header">
 <h1><%= t('.all') %> </h1>
   <% if @tests.present? %>
-    <table>
+  <div class="card-body">
+  <table class="table table-striped">
       <tr>
         <th><%=t('.title')%></th>
         <th><%=t('.level')%></th>
@@ -10,8 +13,11 @@
 
       <%= render @tests %>
     </table>
+    </div>
   <% else%>
     <p><%= render plain:"У вас нет тестов"%></p>
   <% end%>
 
   <%= link_to t('.root_page'), root_path %>
+  </div>
+  </div>
