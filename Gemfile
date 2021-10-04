@@ -26,6 +26,12 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise',  '~> 4.0'
 
+gem "octokit", "~> 4.0"
+
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem "figaro"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -5,9 +5,9 @@
   <%='из '%><%= @test_user.test.questions.count %>  
 </p>
 
-<b>
+<p>
   <%= @test_user.current_question.body %>
-</b>
+</p>
 
 <%= form_with url: tests_user_path(@test_user), method: :put do |form| %>
     <%= form.collection_check_boxes :answer_ids, @test_user.current_question.answers, :id, :text, include_hidden: false do |b| %>
@@ -17,6 +17,8 @@
   <%= b.label %>
 </p>
 <%end%>
+
+<p><%= link_to "Gist question", gists_path(:id => @test_user.id), method: :post %> </p>
 
 <p><%= form.submit 'Следующий' %></p>
 <%end%>
