@@ -8,13 +8,12 @@ class GistsController < ApplicationController
   def create
     result = GistQuestionService.new(@test_user.current_question).call      
     
-    if result.present?
-        current_user.gists.create!(question: @test_user.current_question, url: result.html_url)
-        flash[:notice] = "#{I18n.t('.success')} - #{view_context.link_to("Ссылка", result.html_url)}"
+    if result.success?
+        current_user.gists.create!(question: @test_user.current_question, url: result.url)
+        flash[:notice] = "#{I18n.t('.success')} - #{view_context.link_to(I18n.t('.link'), result.url)}"
     else
         flash[:alert] = I18n.t('.failure')
     end
       redirect_to @test_user
-    end
+  end
 end
-

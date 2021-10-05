@@ -34,6 +34,7 @@ ru:
 
   failure: "Во время сохранения gist произошла ошибка"
   success: "Gist сохранен"
+  link: Ссылка
 
   new_create_test: Создать новый тест
   edit_test: Редактировать тест %{title}

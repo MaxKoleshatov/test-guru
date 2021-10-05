@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     end
     resources :gists
   end
-  resources :gists
 
   root 'welcome#index'
 end
