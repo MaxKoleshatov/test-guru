@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_064955) do
   end
 
   create_table "gists", force: :cascade do |t|
-    t.integer "question_id"
-    t.integer "user_id"
+    t.integer "question_id", null: false
+    t.integer "user_id", null: false
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
