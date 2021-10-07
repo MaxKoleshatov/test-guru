@@ -1,0 +1,6 @@
+<tr>
+  <td><%= link_to (gist.question.body), admin_question_path(gist.question)%></td>
+  <td><%= link_to("#{gist.id}", gist.url)%></td>
+  <td><%= gist.user.email%></td>
+  <td><%= link_to "Удалить", admin_gist_path(gist), method: :delete%></td>
+  </tr>

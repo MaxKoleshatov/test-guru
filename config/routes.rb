@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :gists
   get 'welcome/index'
   get 'sessions/new'
   get 'users/new'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   resources :tests_users, only: %i[show update] do
     member do
       get :result
+      post :gist
     end
   end
 
@@ -24,8 +26,8 @@ Rails.application.routes.draw do
         resources :answers, except: :index, shallow: true
       end
     end
+    resources :gists
   end
-
 
   root 'welcome#index'
 end

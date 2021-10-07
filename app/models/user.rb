@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :created_tests, class_name: "Test", foreign_key: "author_id"
   has_many :tests_users
   has_many :tests, through: :tests_users, dependent: :destroy
+  has_many :gists, dependent: :destroy
 
   validates :email, presence: true,
                     uniqueness: { scope: :email, message: "данная почта уже зарегистрированна"},

@@ -7,6 +7,7 @@
    <p class='nav_user'><%= link_to t('.log_out'), destroy_user_session_path, method: :delete %></p>
     <% if current_user.admin?%>
      <p class="nav user"><%= link_to 'Admin', admin_tests_path %></p>
+     <p class="nav user"><%= link_to 'Gists', admin_gists_path %></p>
     <% end %>
   <% end %>
 
