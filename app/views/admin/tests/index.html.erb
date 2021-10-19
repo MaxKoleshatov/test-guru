@@ -1,7 +1,11 @@
 <div class="card">
 <div class="card-header">
 <h1><%=t('.header') %> </h1>
+
+<%= render 'shared/errors', resource: @test %>
+
   <% if @tests.present? %>
+
   <div class="table">
   <table class="table">
       <tr>

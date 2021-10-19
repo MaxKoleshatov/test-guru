@@ -1,18 +1,24 @@
 document.addEventListener('turbolinks:load', function() {
-    var control = document.getElementById('password_confirm')
+  const passwordConfirm = document.getElementById('password_confirm')
 
-    if (control) { control.addEventListener('input', checkPassword) }
+  if (passwordConfirm) { passwordConfirm.addEventListener('input', checkPassword) }   
 })
     
-function checkPassword() {
-    var pass1 = document.getElementById("password")
-    var pass2 = document.getElementById("password_confirm")
+  function checkPassword() {
+    const pass1 = document.getElementById("password")
+    const pass2 = document.getElementById("password_confirm")
+    const ColorRed = "#ff6666"
+    const ColorGreen = "#66cc66"
+
+    function changeColor(color) {
+      pass2.style.backgroundColor = color
+    }
     
     if (pass1.value === "" || pass2.value === "") {
-      pass2.style.backgroundColor = "transparent"
+      changeColor('transparent')
     } else if (pass1.value === pass2.value) {
-      pass2.style.backgroundColor = "green"
+      changeColor(ColorGreen)
     } else {
-      pass2.style.backgroundColor = "red"
+      changeColor(ColorRed)
     }
-}
+  }
