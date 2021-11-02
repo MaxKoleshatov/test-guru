@@ -1,9 +1,9 @@
 <%= form_with model: [:admin, @test] do |form| %>
- <%= render 'shared/errors', resource: @test %>
+<%= render 'shared/errors', resource: @test %>
   
     <p>
       <%= form.label :title %><br>
-      <%= form.text_field :title %>
+      <%= form.text_field :title%>
     </p><br>
   
     <p>

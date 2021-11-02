@@ -5,6 +5,13 @@
   <%='из '%><%= @test_user.test.questions.count %>  
 </p>
 
+<div class="progress">
+  <%= content_tag :div, '',
+                  class: 'progress-bar',
+                  id: 'progress-test',
+                  data: {questions_count: @test_user.test.questions.count, question_number: @test_user.number_current_question} %>
+</div>
+
 <p>
   <%= @test_user.current_question.body %>
 </p>
@@ -20,5 +27,5 @@
 
 <p><%= link_to "Gist question", gists_path(:id => @test_user.id), method: :post %> </p>
 
-<p><%= form.submit 'Следующий' %></p>
+<p><%= form.submit 'Следующий', id: "progress_change" %></p>
 <%end%>

@@ -45,7 +45,7 @@ ru:
         test:
           attributes:
             title:
-              blank: Название не может быть пустым hhhhh
+              blank: Название не может быть пустым
             level:
               greater_than: Установите уровень теста
             category:
@@ -125,6 +125,8 @@ ru:
         action: Действия
         create_new_test: Создать новый тест
         root_page: На главную
+      form_inline:
+        submit: OK
       test:
         show_test: Посмотреть тест
         edit_test: Отредактировать тест
