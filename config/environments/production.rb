@@ -64,9 +64,9 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = {host: 'gentle-brook-26227.herokuapp.com'}
-  config.action_mailer.delivery_method = :sntp
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.sntp_settings = {
-    address: 'sntp.gmail.com',
+    address: 'smtp.gmail.com',
     port: 587,
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD'],
