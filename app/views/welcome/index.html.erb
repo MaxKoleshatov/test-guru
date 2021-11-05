@@ -2,7 +2,7 @@
 <div class="col col-md-4">
 
 
-<h1><a rel="nofollow noopener" target="_blank" href="http://localhost:3000/tests">Начать Тесты!</a></h1>
+<h1><%= link_to "Начать тесты!", tests_path %><h1>
 
 <% if current_user.present? %>
   <p><%= t('.welcome')%>, <%=current_user.first_name%> Guru </p>
@@ -12,6 +12,7 @@
   <td><%= link_to t('.registration') , new_user_registration_path %></br>
   <td><%= link_to t('.log_in'), new_user_session_path %></br>
   <td><%= link_to t('.log_out'), destroy_user_session_path, method: :delete %></br>
+  
 </tr>
 </div>
 </div>
