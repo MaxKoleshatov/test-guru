@@ -53,7 +53,7 @@ ru:
         user:
           attributes:
             email:
-              blank: Ты пидор
+              taken: Почта зарегистрирована 
 
   helpers:
     submit:
