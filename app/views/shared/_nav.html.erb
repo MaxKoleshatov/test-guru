@@ -5,7 +5,7 @@
   <% if user_signed_in? %>
    <p class='nav user'><%= t('.welcome')%>, <b><%= current_user.email %></b>  Guru </p>
    <p class='nav_user'><%= link_to t('.log_out'), destroy_user_session_path, method: :delete %></p>
-   <p class='nav_user'><%= link_to t('.log_out'), destroy_user_session_path, method: :delete %></p>
+   <p class='nav_user'><%= link_to "Обратная связь", feedback_index_path %></p>
     <% if current_user.admin?%>
      <p class="nav user"><%= link_to 'Admin', admin_tests_path %></p>
      <p class="nav user"><%= link_to 'Gists', admin_gists_path %></p>
