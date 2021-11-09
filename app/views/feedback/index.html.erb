@@ -1,12 +1,13 @@
-<h1> Написать сообщение <h1>
+<h1> Написать сообщение администратору <h1>
 
 <%= form_with url: feedback_index_path, local: true do |f| %>
 
-    <div class="mb-3">
-        <%= f.text_area :text, id: :message, rows: 6, class: 'form-control' %>
-      </div>
+<div class="mb-3">
+  <%= f.text_area :text, id: :message, rows: 6, class: 'form-control' %>
+</div>
 
-      <p>
-      <%= f.submit "Отправить"%>
-    </p>
-    <% end %>
+<p>
+  <%= f.submit "Отправить"%>
+</p>
+
+<% end %>
