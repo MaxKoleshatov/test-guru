@@ -35,6 +35,14 @@ en:
   new_create_test: Create new test
   edit_test: Edit test %{title}
 
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: Email taken 
+
   helpers:
     submit:
       test:

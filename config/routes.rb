@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :gists
   end
 
+  resources :feedback
+
   root 'welcome#index'
 end
 # For details on the DSL available within this file, see https://guides.r

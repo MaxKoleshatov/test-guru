@@ -31,6 +31,10 @@ class TestsUser < ApplicationRecord
     test.questions.order(:id).where('id < ?', self.current_question.id).count + 1
   end
 
+  def check_answer_ids(answer_ids)
+    answer_ids.present?
+  end
+
   private
 
   def before_validation_set_first_question
