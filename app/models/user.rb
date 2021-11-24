@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :tests_users
   has_many :tests, through: :tests_users, dependent: :destroy
   has_many :gists, dependent: :destroy
+  has_many :users_badges
+  has_many :badges, through: :users_badges
 
   validates :email, presence: true,
                     uniqueness: { scope: :email, message: "данная почта уже зарегистрированна"},
