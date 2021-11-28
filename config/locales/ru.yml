@@ -54,6 +54,10 @@ ru:
           attributes:
             email:
               taken: Почта зарегистрирована 
+  
+  category_rule: Прошел все тесты категории
+  first_time_rule: Прошел с первой попытки тест
+  level_rule: Прошел все тесты уровня
 
   helpers:
     submit:
@@ -114,6 +118,14 @@ ru:
 
 
   admin:
+    badges:
+      form:
+        title: Название
+        image: Изображение
+        options: Параметры
+        rule: Правило
+        create: Создать награду
+        promt: Выберите правило
     tests:
       create:
         success: "Тест успешно создан"

@@ -1,7 +1,5 @@
 class TestsUsersController < ApplicationController
 
-  include AddBadgesService
-
   before_action :authenticate_user!
   before_action :check_answer_user, only: %i[update]
   before_action :set_test_user, only: %i[show update result]
@@ -14,16 +12,14 @@ class TestsUsersController < ApplicationController
     @test_user.accept!(params[:answer_ids])
 
     if @test_user.completed?
-      check_rules
+      AddBadgesService.new(@test_user).call
+      
       TestsMailer.completed_test(@test_user).deliver_now
       redirect_to result_tests_user_path(@test_user)
     else
       render :show
     end
-  end
-
-  
-   
+  end   
 
   private
 

@@ -16,8 +16,8 @@ class Test < ApplicationRecord
   scope :medium, -> {where(level: 2..4)}
   scope :hard, -> {where(level: 5..Float::INFINITY)}
   scope :sort_by_category, -> (category_title) {joins(:category)
-  .where(categories: {title: category_title})
-  .order(title: :desc)}
+        .where(categories: {title: category_title})
+        .order(title: :desc)}
   scope :by_level, -> (level) {where(level: level)}
 
   def self.sort_tests_by_category(category)
