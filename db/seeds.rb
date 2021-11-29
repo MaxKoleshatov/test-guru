@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 users = User.create!([{first_name: "Макс", email: "maksimkoleshatov1993@gmail.com", password: "123", type: "Admin"}, {first_name: "Ден", email: "jonguru@mail.ru", password: "123"}, {first_name: "Пол", email: "polpolos123@mail.ru", password: "123"}])
 
 categories = Category.create!([{title: "Спорт"}, {title: "История"}, {title: "Кино"}])

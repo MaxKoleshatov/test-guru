@@ -2,11 +2,11 @@
 
 <% if @test_user.done? %> 
   <p>
-  Congratulations! You passed the test <%=@test.title %>, your result <%=@test_user.test_result %> % ! Если хотите пройти другие или этот же тест нажмите сюда <%= link_to 'еще', tests_url %>
+  Congratulations! You passed the test <%=@test.title %>, your result <%=@test_user.test_result %> % ! Если хотите пройти другие или этот же тест нажмите сюда <%= link_to 'еще', tests_path %>
   </p>
 <% else %>
   <p>
-  We are sorry! You did not pass the test <%=@test.title %>, your result <%=@test_user.test_result %> % ! Если хотите пройти другие или этот же тест нажмите сюда <%= link_to 'еще', tests_url %>
+  We are sorry! You did not pass the test <%=@test.title %>, your result <%=@test_user.test_result %> % ! Если хотите пройти другие или этот же тест нажмите сюда <%= link_to 'еще', tests_path %>
   </p>
   <% end %>
   

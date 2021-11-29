@@ -9,6 +9,9 @@
     <% if current_user.admin?%>
      <p class="nav user"><%= link_to 'Admin', admin_tests_path %></p>
      <p class="nav user"><%= link_to 'Gists', admin_gists_path %></p>
+     <p class="nav user"><%= link_to 'Все награды', admin_badges_path %></p>
+    <% else %>
+     <p class="nav user"><%= link_to 'Мои награды', users_badges_path %></p>
     <% end %>
   <% end %>
 

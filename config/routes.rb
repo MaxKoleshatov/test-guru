@@ -28,9 +28,14 @@ Rails.application.routes.draw do
       end
     end
     resources :gists
+    resources :badges
   end
 
   resources :feedback
+
+  resources :badges
+
+  resources :users_badges
 
   root 'welcome#index'
 end

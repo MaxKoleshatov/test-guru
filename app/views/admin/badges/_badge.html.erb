@@ -1,0 +1,9 @@
+<tr>
+  <td><%= badge.title%></td>
+  <td><%= badge.image%></td>
+  <td><%= badge.rules%></td>
+  <td><%= badge.options%></td>
+  <td><%= link_to "Показать награду", admin_badge_path(badge) %></td>
+  <td><%= link_to "Изменить награду", edit_admin_badge_path(badge) %></td>
+  <td><%= link_to "Удалить награду", admin_badge_path(badge), method: :delete %></td>
+</tr>
