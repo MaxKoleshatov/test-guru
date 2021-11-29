@@ -5,7 +5,7 @@ class FirstTryTestRulesService < AllRulesService
     tests_move_user_by_tests = @test_user.user.tests_users.where(test_id: Test.where(title: @options))
 
     if tests_move_user_by_tests.present?
-      add_badges if tests_move_user_by_tests.first.done? && tests_move_user_by_tests.ids.count == 1
+      tests_move_user_by_tests.first.done? && tests_move_user_by_tests.ids.count == 1
     end
   end  
 end

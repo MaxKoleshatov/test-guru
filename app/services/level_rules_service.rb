@@ -13,6 +13,6 @@ class LevelRulesService < AllRulesService
         completed_tests_by_level << test.test_id
       end
       end
-    add_badges if completed_tests_by_level.count == all_tests_level.count
+    completed_tests_by_level.count == all_tests_level.count
   end   
 end
