@@ -1,5 +1,9 @@
 <h1>Тест  <%=@test_user.test.title %></h1>
 
+<h2>
+  <div class="row justify-content-center" id="timer"></div>
+</h2>
+
 <p>
   <%='Вопрос '%><%= @test_user.number_current_question%>
   <%='из '%><%= @test_user.test.questions.count %>  
@@ -29,3 +33,9 @@
 
 <p><%= form.submit 'Следующий', id: "progress_change" %></p>
 <%end%>
+
+<div>
+  <%= content_tag :div, '',
+                  id: 'time',
+                  data: {time_remaining: @test_user.time_remaining, id: @test_user.id} %>
+</div>

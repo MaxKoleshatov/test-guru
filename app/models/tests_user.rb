@@ -7,6 +7,10 @@ class TestsUser < ApplicationRecord
 
   CHECKPOINT_RESULT = 85
 
+  def time_remaining
+    time = (self.created_at + self.test.timer - Time.now).round(0)
+  end
+
   def completed?
     current_question.nil?
   end
