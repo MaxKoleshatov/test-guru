@@ -16,15 +16,11 @@ class TestsUser < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    self.time_over? && self.test.timer != 0 || current_question.nil?
   end
 
   def accept!(answer_ids)
-    if self.time_over? && self.test.timer != 0
-      self.current_question = nil
-      return
-    end
-    
+        
     self.correct_questions += 1 if correct_answer?(answer_ids)
   
     self.current_question = next_question
@@ -43,10 +39,6 @@ class TestsUser < ApplicationRecord
     test.questions.order(:id).where('id < ?', self.current_question.id).count + 1
   end
 
-  def check_answer_ids(answer_ids)
-    answer_ids.present?
-  end
-
   private
 
   def before_validation_set_first_question
@@ -54,7 +46,7 @@ class TestsUser < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort if answer_ids.present?
   end
 
   def correct_answers

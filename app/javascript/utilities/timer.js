@@ -11,7 +11,7 @@ document.addEventListener('turbolinks:load', function() {
   timer = setInterval(function () {
     if (timeMinut <= 0) {
       clearInterval(timer)
-      document.querySelector('input[type="submit"]').click()
+      document.querySelector('input[type="submit"]').form.submit()
     } else {
       let strTimer = `${timeMinut}`
       timerShow.innerHTML = strTimer
