@@ -11,14 +11,22 @@ class TestsUser < ApplicationRecord
     time = (self.created_at + self.test.timer - Time.now).round(0)
   end
 
+  def time_over?
+    time_remaining <= 0
+  end
+
   def completed?
     current_question.nil?
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
+    if self.time_over? && self.test.timer != 0
+      self.current_question = nil
+      return
     end
+    
+    self.correct_questions += 1 if correct_answer?(answer_ids)
+  
     self.current_question = next_question
     save!
   end
