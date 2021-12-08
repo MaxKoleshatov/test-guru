@@ -4,8 +4,12 @@ class TestsUser < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
+  # before_validation :before_validation_answer_ids, on: :update
+
+  # validate :answers_limit?, on: :update
 
   CHECKPOINT_RESULT = 85
+
 
   def time_remaining
     time = (self.created_at + self.test.timer - Time.now).round(0)
