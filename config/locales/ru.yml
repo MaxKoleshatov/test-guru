@@ -91,6 +91,7 @@ ru:
       level: "Уровень"
       count: "Количество вопросов"
       action: "Действия"
+      timer: Таймер
       all: "Все тесты"
       root_page: "На главную"
     test:
@@ -135,6 +136,7 @@ ru:
         level: Уровень
         count: Количество вопросов
         action: Действия
+        timer: Таймер, сек
         create_new_test: Создать новый тест
         root_page: На главную
       form_inline:

@@ -4,17 +4,29 @@ class TestsUser < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
+  # before_validation :before_validation_answer_ids, on: :update
+
+  # validate :answers_limit?, on: :update
 
   CHECKPOINT_RESULT = 85
 
+
+  def time_remaining
+    time = (self.created_at + self.test.timer - Time.now).round(0)
+  end
+
+  def time_over?
+    time_remaining <= 0
+  end
+
   def completed?
-    current_question.nil?
+    self.time_over? && self.test.timer != 0 || current_question.nil?
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+        
+    self.correct_questions += 1 if correct_answer?(answer_ids)
+  
     self.current_question = next_question
     save!
   end
@@ -31,10 +43,6 @@ class TestsUser < ApplicationRecord
     test.questions.order(:id).where('id < ?', self.current_question.id).count + 1
   end
 
-  def check_answer_ids(answer_ids)
-    answer_ids.present?
-  end
-
   private
 
   def before_validation_set_first_question
@@ -42,7 +50,7 @@ class TestsUser < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort if answer_ids.present?
   end
 
   def correct_answers
